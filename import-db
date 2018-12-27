@@ -26,10 +26,66 @@ Data Types
  select first_name, last_name , phone from employees where base_salary > 5000
  select first_name, last_name , phone from employees where base_salary >= 5000
  select first_name, last_name , phone from employees where base_salary >= 5000
+ select first_name, last_name , phone from employees where base_salary <> 5000 #not equal !=
+ 
  
  - who are the employees with base salary between $1000-$2000?
+ select first_name, last_name , phone, base_salary from employees where base_salary between 1000 and 2000;
  
  - who are the employees with the salary brackets :$1600,$2700 or $4200?
- 
+select first_name, last_name , phone, base_salary 
+  from employees 
+where base_salary in (1600,2700,4200); 
+
+
+======================================================================================================================
+We saw how can we use BETWEEN for ranges and how can we use IN for sets. Sure, BETWEEN & IN besides arithmetic values
+
+can be used for dates and strings.
+
+But we will see later how it's different from numbers which is important.
+=======================================================================================================================
+
+Your boss wants some data!
+-who are employees hired before 2005?
+select * 
+  from employees 
+where hire_date < '2005-1-1'
+
+---
+after 2005
+select * 
+  from employees 
+where hire_date > '2005-1-1'
+---
+after or equal to 2005
+select * 
+  from employees 
+where hire_date >= '2005-1-1'
+
+---
+not equal
+select * 
+  from employees 
+where hire_date <> '2005-1-1'
+
+=========================================================================================================================
+So, how can we type this? First, for dates
+
+you always use single quotes. When you use dates you used to put them between single quotes.
+
+So SQL can know that this is a date and it's not a number.
+==========================================================================================================================
+
+-who are employees hired between 2008 and 2010?
+select * 
+  from employees 
+where hire_date between '2008-1-1' and '2010-12-31'
+
+-who are employees hired on 22 august 2010?
+select * 
+  from employees 
+where hire_date in ('2010-8-22')
+
  
   
