@@ -1,0 +1,305 @@
+Math Operations in SQL
+
+Operator      Description
+  +              Add
+  -            Subtract
+  *            Multiply
+  /            Divide
+  %            Modulo
+  
+  
+  ---
+select 1 + 1 
+
+select 5 - 2 
+
+select 5 * 3 
+
+select 5 / 2 or select 5 / 2.0 or select 5.0 / 2.0
+
+-----------------------------------------------------------------------------------------------------
+It's Payday
+We need  to calculate the net salary of all employees of the company.
+
+Net salary = Base Salary  + Commission
+---------------------
+select first_name, last_name,base_salary + (base_salary * commission_pct) as net_salary
+    from employees
+    
+    or 
+select first_name, last_name,base_salary, base_salary + (base_salary * commission_pct) as net_salary
+    from employees
+
+    or
+select first_name, last_name,base_salary, (base_salary * commission_pct) as commission_real
+    from employees 
+where base_salary * commission_pct < 2000
+    or
+select first_name, last_name,base_salary, (base_salary * commission_pct) as commission_real
+    from employees 
+where base_salary * commission_pct > 2000
+
+---------------------
+
+concatenate string with || Operator
+
+select 'Hello' || 'World'
+
+select 'Hello' || 'World' || '!!' ;
+
+select 'Hello' || ' ' || 'World' || '!!' ;
+
+select first_name , last_name , first_name || last_name as fullname
+    from employees
+
+select first_name , last_name , first_name || ' ' || last_name as fullname
+    from employees
+
+------------------
+
+concatenate string with number
+
+select 'Hello' || 9
+
+select 10 || 'Hello' || 9
+
+select 10 || ' ' ||  'Hello' || ' ' ||  9
+
+--------------------------
+Give Your report field a column name
+
+select first_name , last_name , first_name || last_name as full_name
+    from employees
+-------------------------
+
+Let's make a full reports !
+
+We want a report of employees
+- IDs
+- Names
+- Email Addresses
+- Job Titles 
+- Net Salary
+
+-----
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email, job_title, 
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+  or
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+  
+    
+-----
+
+order record by column
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+order by full_name;
+
+------------
+
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+order by net_salary;
+
+=====
+ORDER BY :
+ASC -> Default
+Desc -> Descending Order
+-------
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+order by net_salary desc;
+
+-------------------
+
+Order Record By multiple column
+
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+where job_title ilike '%custome%' 
+order by job_title, net_salary desc;
+
+or
+
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+where job_title ilike '%custome%' 
+order by job_title, net_salary ,hire_date desc;
+
+or
+
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  hire_date,
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+where job_title ilike '%custome%' 
+
+-------------
+
+How alias name cannt be use with where
+---
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  hire_date,
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+where job_title ilike '%custome%' and 
+base_salary + (base_salary * commission_pct) > 3000
+order by job_title, base_salary, hire_date;
+
+--------
+Limit Record Count Fetched By Your Query
+
+select * 
+from employees
+limit 10;
+or
+
+select 
+  id , 
+  first_name || ' ' || last_name as "full_name" , 
+  email || '@acme.com' as "email_address", 
+  job_title, 
+  hire_date,
+  base_salary + (base_salary * commission_pct) as "net_salary"
+from employees
+where job_title ilike '%custome%' and 
+base_salary + (base_salary * commission_pct) > 3000
+order by job_title, base_salary, hire_date
+limit 100;
+--------------------------------------------
+Fetch A field Unique values using distinct
+
+select 
+  distinct state 
+from employees
+or
+select distinct zip_code 
+from employees
+
+-------------------------
+Using Distinct Keyword with Multiple Column
+select distinct state, job_title
+    from employees
+order by state , job_title
+    
+------------------------------------------------
+What is NULL Value anyway
+
+select *
+    from employees
+where phone is null;
+
+select *
+    from employees
+where phone = ' ';
+
+============================================
+
+Build More Shopisicated with case statement
+
+select 
+    case state
+        when 'FL' then 'Florida'
+        when 'NY' then 'New York'
+        when 'NJ' then 'New Jersey'
+    else 'Other'
+    end 
+from employees
+
+or
+
+select state,
+    case state
+        when 'FL' then 'Florida'
+        when 'NY' then 'New York'
+        when 'NJ' then 'New Jersey'
+    else 'Other'
+    end 
+from employees
+
+or
+select first_name, last_name, job_title, state, base_salary,
+
+    case state
+        when 'FL' then 'Florida'
+        when 'NY' then 'New York'
+        when 'NJ' then 'New Jersey'
+    else 'Other'
+    end 
+
+from employees
+
+select first_name, last_name, job_title, state, 
+    case state
+        when 'FL' then 'Florida'
+        when 'NY' then 'New York'
+        when 'NJ' then 'New Jersey'
+    else 'Other'
+    end 
+    base_salary
+from employees
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
