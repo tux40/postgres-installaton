@@ -136,9 +136,25 @@ select *
     from employees
 where job_title like 'Data%';
 
+or
+
+select job_title
+    from employees
+where job_title like 'Data %';
+
+
 
 - Employees phone number ends with '566'?
+select *
+    from employees
+where phone like '%566';
+
 - Employee's address has the word 'Washington'?
+select *
+    from employees
+where address like '%Washington%';
+
+
 
  
   
