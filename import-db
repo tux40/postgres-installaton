@@ -1,0 +1,35 @@
+#open sqlectron
+#connect postgres server
+#klik tab file->openquery->klik db
+-----------------------------------------------------
+#query database
+----
+select * from employees
+select first_name, last_name , phone from employees
+--
+Data Types
+* Numbers
+  -Salary
+  -Commision rate
+* Dates
+  -Hire date
+* Strings
+  -First & last names
+  -Emails
+  -Phones(Yes they are stored as characters and not numbers!)
+  -Job Titles
+  -...and more...
+ 
+ ---
+ Your boss wants some data !
+ - who are the employees with base salary more than (or equal to) $5000?
+ select first_name, last_name , phone from employees where base_salary > 5000
+ select first_name, last_name , phone from employees where base_salary >= 5000
+ select first_name, last_name , phone from employees where base_salary >= 5000
+ 
+ - who are the employees with base salary between $1000-$2000?
+ 
+ - who are the employees with the salary brackets :$1600,$2700 or $4200?
+ 
+ 
+  
