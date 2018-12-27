@@ -288,6 +288,85 @@ from employees
 
 
 
+===================
+
+Your Knowledge so far under greate test
+
+-----
+select first_name, last_name , base_salary, commission_pct,
+    base_salary + (base_salary * commission_pct) - 
+    case    
+        when base_salary < 1000 then 0 
+        when base_salary between 1001 and 2500 then base_salary * 0.07
+        when base_salary between 2501 and 5000 then base_salary * 0.09
+        when base_salary between 5001 and 7000 then base_salary * 0.1001
+    end as net_salary 
+from employees
+
+------
+select first_name, last_name , base_salary, commission_pct,
+    base_salary + (base_salary * commission_pct) - 
+    case    
+        when base_salary < 1000 then 0 
+        when base_salary between 1001 and 2500 then base_salary * 0.07
+        when base_salary between 2501 and 5000 then base_salary * 0.09
+        when base_salary between 5001 and 7000 then base_salary * 0.1001
+        else base_salary * 0.15
+    end as net_salary 
+from employees
+-------------
+
+select 
+    first_name, 
+    last_name, 
+    base_salary, 
+    commission_pct, 
+    base_salary,
+    (base_salary * commission_pct) as commission, 
+    case    
+        when base_salary < 1000 then 0 
+        when base_salary between 1001 and 2500 then base_salary * 0.07
+        when base_salary between 2501 and 5000 then base_salary * 0.09
+        when base_salary between 5001 and 7000 then base_salary * 0.11
+        else base_salary * 0.15
+    end as income_tax,
+    base_salary 
+    + (base_salary * commission_pct)
+    - case
+        when base_salary < 1000 then 0 
+        when base_salary between 1001 and 2500 then base_salary * 0.07
+        when base_salary between 2501 and 5000 then base_salary * 0.09
+        when base_salary between 5001 and 7000 then base_salary * 0.11
+        else base_salary * 0.15
+    end net_salary
+from employees
+
+or
+
+select 
+    first_name || ' ' ||  last_name as full_name, 
+    last_name, 
+    base_salary, 
+    commission_pct, 
+    base_salary,
+    (base_salary * commission_pct) as commission, 
+    case    
+        when base_salary < 1000 then 0 
+        when base_salary between 1001 and 2500 then base_salary * 0.07
+        when base_salary between 2501 and 5000 then base_salary * 0.09
+        when base_salary between 5001 and 7000 then base_salary * 0.11
+        else base_salary * 0.15
+    end as income_tax,
+    base_salary 
+    + (base_salary * commission_pct)
+    - case
+        when base_salary < 1000 then 0 
+        when base_salary between 1001 and 2500 then base_salary * 0.07
+        when base_salary between 2501 and 5000 then base_salary * 0.09
+        when base_salary between 5001 and 7000 then base_salary * 0.11
+        else base_salary * 0.15
+    end net_salary
+from employees
 
 
 
