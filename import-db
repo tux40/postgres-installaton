@@ -154,6 +154,36 @@ select *
     from employees
 where address like '%Washington%';
 
+or
+
+select *
+    from employees
+where address like '%Washington%9';
+
+or 
+
+select *
+    from employees
+where address like '%Washington%St%';
+
+--------------------------------------------------------------------------------------------------------------
+
+How can we answer  these question
+
+-All employees live in CA & NJ ?
+
+select *
+    from employees
+where state in ('CA', 'NJ');
+
+
+
+
+
+
+
+
+
 
 
  
