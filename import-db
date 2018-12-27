@@ -85,7 +85,7 @@ where hire_date between '2008-1-1' and '2010-12-31'
 -who are employees hired on 22 august 2010?
 select * 
   from employees 
-where hire_date in ('2010-8-22')
+where hire_date = '2010-8-22'
 
  
   
