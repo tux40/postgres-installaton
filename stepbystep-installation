@@ -1,0 +1,41 @@
+[root@localhost ~]# uname -r
+3.10.0-123.el7.x86_64
+#yum install https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-3.noarch.rpm
+#yum install postgresql94
+#yum install postgresql94-server
+#/usr/pgsql-9.4/bin/postgresql94-setup initdb
+#systemctl enable postgresql-9.4
+#systemctl start postgresql-9.4
+#cat /var/lib/pgsql/9.4/data/pg_hba.conf
+-----------------------------------------------------------------------------------
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+#host    all             all             127.0.0.1/32           trust
+host    all             all              10.14.160.0    255.255.255.0   trust
+# IPv6 local connections:
+host    all             all             ::1/128                 ident
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+#local   replication     postgres                                peer
+#host    replication     postgres        127.0.0.1/32            ident
+#host    replication     postgres        ::1/128                 ident
+-----------------------------------------------------------------------------------
+# cat /var/lib/pgsql/9.4/data/postgresql.conf
+-----------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+# CONNECTIONS AND AUTHENTICATION
+#------------------------------------------------------------------------------
+
+# - Connection Settings -
+
+#listen_addresses = 'localhost'         # what IP address(es) to listen on;
+                                        # comma-separated list of addresses;
+                                        # defaults to 'localhost'; use '*' for all
+listen_addresses = '*'
+                                        # (change requires restart)
+-------------------------------------------------------------------------------------
+
+
