@@ -107,6 +107,38 @@ select *
 where phone = '718-478-8504';
 
 
+----------------------------------------------------------------------------------------
+How can we answer these question ?
+- Employees live in states second letter is 'A'?
+select * 
+    from employees
+where state like '_A';
+
+--the first later is V
+select * 
+    from employees
+where state like 'V_';
+
+
+- Employees names of four letters , start with 'A' and ends with 'e'?
+select * 
+    from employees
+where first_name like 'A__e';
+
+- Employees job titles start with 'Data'?
+select * 
+    from employees
+where job_title like 'Data_________';
+
+or more efective use % "for many character after or before"
+
+select * 
+    from employees
+where job_title like 'Data%';
+
+
+- Employees phone number ends with '566'?
+- Employee's address has the word 'Washington'?
 
  
   
