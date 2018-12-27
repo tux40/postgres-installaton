@@ -37,4 +37,29 @@ where job_title ilike 'customer care%'  and
 state = 'KS' and 
 zip_code = '67410';
 
+-----------------------------------------------------------------------------
+What about these queries ?
+- Employees hired before 2011-05-01 OR After 2013-08-31?
+select * 
+    from employees
+where hire_date < '2011-5-1' or 
+hire_date > '2013-08-31'
+
+- Employees Lives in Texas OR Working as software engineers?
+select * 
+    from employees
+where state = 'TX' or 
+job_title ilike 'software engineer%'
+
+
+- State with employees hired after 2016, working as managers or their lastname start with T?
+
+select * 
+    from employees
+where hire_date > '2016-1-1' or 
+job_title ilike '%manager%' or
+last_name like 'T%'
+
+
+
 
