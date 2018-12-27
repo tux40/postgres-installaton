@@ -87,5 +87,26 @@ select *
   from employees 
 where hire_date = '2010-8-22'
 
+-------------------------------------------------------
+How can we answer these questions?
+- Employee with last name 'Oles'?
+select * 
+    from employees
+where last_name = 'Oles';
+
+
+- Empoyees in Florida (FL) state?
+select * 
+    from employees
+where state = 'FL';
+
+
+- Employee with phone number 718-478-8504?
+select * 
+    from employees
+where phone = '718-478-8504';
+
+
+
  
   
