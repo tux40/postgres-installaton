@@ -60,6 +60,43 @@ where hire_date > '2016-1-1' or
 job_title ilike '%manager%' or
 last_name like 'T%'
 
+---------------------------------------------------
+How can we solve these ?
+- Employees who are not in texas , new york or california ?
+select * 
+    from employees
+where state not in ('TX', 'NY', 'CA');
+
+- Job title without space character
+select * 
+    from employees
+where state not in ('TX', 'NY', 'CA');
+
+- Address don't contain the word 'Maryland'
+select * 
+    from employees
+where state not in ('TX', 'NY', 'CA');
+
+
+--------------
+AND , OR & NOT : Which has the higher Priority
+
+select first_name, last_name, state, base_salary
+    from employees
+where state = 'FL' and base_salary = 1800 or base_salary = 2200;
+or
+select first_name, last_name, state, base_salary
+    from employees
+where state = 'FL' and (base_salary = 1800 or base_salary = 2200);
+or
+select first_name, last_name, state, base_salary
+    from employees
+where not state = 'FL' and (base_salary = 1800 or base_salary = 2200);
+or
+select first_name, last_name, state, base_salary
+    from employees
+where state = 'FL' and not (base_salary = 1800 or base_salary = 2200);
+
 
 
 
