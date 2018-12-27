@@ -1,0 +1,40 @@
+How to ignoring caps when filtering by string
+- How can we escape Caps?
+select *
+    from employees
+where address ilike '%washington%'
+or
+select *
+    from employees
+where address ilike '%wasHIngton%'
+or
+select *
+    from employees
+where first_name ilike 'ahmed'
+------------
+Now To More Complex Queries!
+- Employees in NJ with base salary above $3,500?
+select state , base_salary
+    from employees
+where state = 'NJ' and base_salary >= 3500
+or 
+select state , base_salary
+    from employees
+where state = 'NJ' and base_salary > 3500
+
+- Employees hired before 2015 with base salary $1,600 and commission rate less than or equal to 35%?
+select *
+    from employees 
+where hire_date < '2015-1-1' and
+base_salary = 1600 and
+commission_pct <= 0.35
+
+
+- Address of Customer care representative who are stated in Kansas with zip code 67410?
+select *
+    from employees 
+where job_title ilike 'customer care%'  and 
+state = 'KS' and 
+zip_code = '67410';
+
+
