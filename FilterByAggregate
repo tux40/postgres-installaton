@@ -1,0 +1,42 @@
+Could you please remove the records with no more than 1 employees per state?
+
+select
+    job_title,
+    state,
+    count(*) as count_emp,
+    avg(base_salary) as avg_base_salary,
+    min(base_salary) as min_base_salary,
+    sum(base_salary + (base_salary * commission_pct)) as total_net,
+    max(commission_pct) as commission_pct 
+from employees
+group by job_title, state
+having count(*) > 1
+order by count_emp desc, avg_base_salary;
+
+-----------------------------------------------------------------------
+select
+    job_title,
+    state,
+    count(*) as count_emp,
+    avg(base_salary) as avg_base_salary,
+    min(base_salary) as min_base_salary,
+    sum(base_salary + (base_salary * commission_pct)) as total_net,
+    max(commission_pct) as commission_pct 
+from employees
+group by job_title, state
+having count(*) > 1 and min(base_salary) > 1200
+order by count_emp desc, avg_base_salary;
+
+-----------------------------------------------------------------------
+SELECT Statement Structure
+------
+
+Select * | col1, col2, .., coln
+  from table_name
+ where conditions 
+ group by col1, col2, ..
+ Having condition
+ Order by col1, col2 , ..
+ limit n;
+ 
+ -----------------------------------------------------------------------
