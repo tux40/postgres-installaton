@@ -1,0 +1,33 @@
+How many employees do we have per state?
+How many employees do we have per state and job title?
+
+select count(*)
+    from employees
+
+select count(*)
+    from employees
+where state = 'FL';
+
+select state, count(*)
+    from employees
+    
+select state, job_title,count(*) as count_all
+    from employees
+group by state, job_title
+order by count_all desc;
+
+select state, job_title,count(*) as count_all
+    from employees
+group by state, job_title
+order by count_all desc
+limit 10;
+
+select state, job_title,count(*) as count_all
+    from employees
+group by state, job_title
+order by count_all desc, job_title, state;
+
+
+
+
+
