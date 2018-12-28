@@ -35,5 +35,80 @@ What Is A Function
   SUM Function
   ----------------------
   SUM , AVG , COUNT , MIN, MAX
+  -------------------------------------------------------------------------------------------
   
+  select * 
+    From employees
+    
+select sum (base_salary)
+    From employees
+where state = 'CA' ;
+
+select avg (base_salary), sum(base_salary)
+    From employees
+where state = 'NJ';
+
+select avg (base_salary), sum(base_salary)
+    From employees
+where state in ('CO', 'FL');
+
+select avg (base_salary) as avg_base_sal, sum(base_salary) as sum_base_sal
+    From employees
+where state in ('CO', 'FL');
+
+select count (first_name)
+    From employees
+where state in ('CO', 'FL')
+
+select count (first_name)
+    From employees
+
+select * 
+    From employees;
+    
+select count(*)
+    from employees;
+    
+select count (phone)
+    from employees
+where phone is null;
+
+select count (phone) as count_phone, count (*) as count_all
+    from employees
+
+select phone 
+    from employees
+where phone = '';
+
+select count(*), sum(base_salary), avg(base_salary)
+    from employees
+
+
+select min(base_salary) - max(base_salary)
+    from employees
+where state in ('NJ','NY')
+
+select min(base_salary) - max(base_salary), avg(base_salary), sum(base_salary), count(*)
+    from employees
+    
+select distinct state
+    from employees;
+    
+select count(distinct state)
+    from employees;
+
+select count (distinct job_title)
+    from employees
+    
+select count (distinct job_title)
+    from employees
+where state = 'CA';
+
+select count (distinct zip_code), count (*) as count_all
+    from employees
+
+
+
+
+-------------------------------------
               
