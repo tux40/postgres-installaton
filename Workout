@@ -1,0 +1,68 @@
+We want a full report of our job titles in the company per state:
+  - Count of Employees
+  - Avarage and minimum base salary
+  - Sum amount of their net salary
+  - Maximum commission rate 
+  
+  -----------
+  select count(*)
+    from employees
+
+select count(*)
+    from employees
+where state = 'FL';
+
+select state, count(*)
+    from employees
+    
+select state, job_title,count(*) as count_all
+    from employees
+group by state, job_title
+order by count_all desc;
+
+select state, job_title,count(*) as count_all
+    from employees
+group by state, job_title
+order by count_all desc
+limit 10;
+
+select state, job_title,count(*) as count_all
+    from employees
+group by state, job_title
+order by count_all desc, job_title, state;
+
+
+------------------------------------------------
+
+select
+    job_title,
+    state,
+    count(*) as count_emp,
+    avg(base_salary) as avg_base_salary,
+    min(base_salary) as min_base_salary,
+    sum(base_salary + (base_salary * commission_pct)) as total_net,
+    max(commission_pct) as commission_pct 
+from employees
+group by job_title, state
+order by count_emp desc, job_title, state;
+
+------------------------------------------------
+
+select
+    job_title,
+    state,
+    count(*) as count_emp,
+    avg(base_salary) as avg_base_salary,
+    min(base_salary) as min_base_salary,
+    sum(base_salary + (base_salary * commission_pct)) as total_net,
+    max(commission_pct) as commission_pct 
+from employees
+group by job_title, state
+order by count_emp desc, avg_base_salary;
+
+-------------------------------------------------
+
+
+
+
+
