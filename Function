@@ -1,0 +1,39 @@
+What Is A Function
+
+            Arg 1 -> 
+          
+  Input ->  Arg 2 ->  FUNCTION  -> Output
+  
+            Arg 3 ->
+            
+  x = 3  ->  f(x) = x * 2 -> 6
+  
+  x = 4 
+        ->  f(x,y) = x * y -> 12
+  y = 3 
+  
+  --
+  Function Types in SQL 
+  
+  Single row functions 
+          
+              Sam                   SAM
+                        UPPER -> 
+              David                DAVID
+  
+  
+  Multiple-row functions
+  
+              Amount 
+                500
+                300             SUM (Amount)
+                200   SUM -> 
+                700               1700
+                
+  
+  ----
+  SUM Function
+  ----------------------
+  SUM , AVG , COUNT , MIN, MAX
+  
+              
